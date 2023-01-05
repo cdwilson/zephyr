@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2022 Chris Wilson <christopher.david.wilson@gmail.com>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/pinctrl/esp-pinctrl-common.h>
+#include <dt-bindings/pinctrl/esp32-pinctrl.h>
+#include <zephyr/dt-bindings/pinctrl/esp32-gpio-sigmap.h>
+
+&pinctrl {
+
+	uart0_default: uart0_default {
+		group1 {
+			pinmux = <UART0_TX_GPIO1>;
+		};
+		group2 {
+			pinmux = <UART0_RX_GPIO3>;
+			bias-pull-up;
+		};
+	};
+
+	ledc0_default: ledc0_default {
+		group1 {
+			pinmux = <LEDC_CH0_GPIO13>;
+			output-enable;
+		};
+	};
+};
